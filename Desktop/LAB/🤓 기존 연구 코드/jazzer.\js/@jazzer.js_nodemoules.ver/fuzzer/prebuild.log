@@ -1,0 +1,392 @@
+$ npm run prebuild
+
+> @jazzer.js/fuzzer@2.1.0 prebuild
+> prebuild --runtime napi --backend cmake-js --all --strip --verbose
+
+prebuild info begin Prebuild version 12.1.0
+prebuild info build Preparing to prebuild @jazzer.js/fuzzer@2.1.0 for napi 4 on linux-x64 using cmake-js
+prebuild verb starting build process cmake-js
+info TOOL Using Ninja generator, because ninja is available.
+info CMD CLEAN
+info RUN [
+info RUN   'cmake',
+info RUN   '-E',
+info RUN   'remove_directory',
+info RUN   '/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build'
+info RUN ]
+info CMD CONFIGURE
+info RUN [
+info RUN   'cmake',
+info RUN   '/home/heewon/dgf/node_modules/@jazzer.js/fuzzer',
+info RUN   '--no-warn-unused-cli',
+info RUN   '-G',
+info RUN   'Ninja',
+info RUN   '-DCMAKE_JS_VERSION=7.3.0',
+info RUN   '-DCMAKE_BUILD_TYPE=Release',
+info RUN   '-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build/Release',
+info RUN   '-DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded$<$<CONFIG:Debug>:Debug>',
+info RUN   '-DCMAKE_JS_INC=/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/node_modules/node-api-headers/include;/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/node_modules/node-addon-api',
+info RUN   '-DCMAKE_JS_SRC=',
+info RUN   '-DNODE_RUNTIME=node',
+info RUN   '-DNODE_RUNTIMEVERSION=20.11.1',
+info RUN   '-DNODE_ARCH=x64',
+info RUN   '-Dnapi_build_version=4',
+info RUN   '-DCMAKE_JS_LIB=',
+info RUN   '-DCMAKE_CXX_FLAGS=-DBUILDING_NODE_EXTENSION'
+info RUN ]
+Not searching for unused variables given on the command line.
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Patch: /usr/bin/patch
+-- COMPILER_RT_DEFAULT_TARGET_TRIPLE not set, using x86_64-linux-gnu
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build
+info CMD BUILD
+info RUN [
+info RUN   'cmake',
+info RUN   '--build',
+info RUN   '/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build',
+info RUN   '--config',
+info RUN   'Release'
+info RUN ]
+[1/17] Creating directories for 'compiler-rt'
+[2/17] Performing download step (download, verify and extract) for 'compiler-rt'
+-- Downloading...
+   dst='/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build/compiler-rt-prefix/src/2023-04-25.tar.gz'
+   timeout='none'
+   inactivity timeout='none'
+-- Using src='https://github.com/CodeIntelligenceTesting/llvm-project-jazzer/archive/refs/tags/2023-04-25.tar.gz'
+-- verifying file...
+       file='/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build/compiler-rt-prefix/src/2023-04-25.tar.gz'
+-- Downloading... done
+-- extracting...
+     src='/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build/compiler-rt-prefix/src/2023-04-25.tar.gz'
+     dst='/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build/compiler-rt-prefix/src/compiler-rt'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[3/17] No update step for 'compiler-rt'
+[4/17] No patch step for 'compiler-rt'
+[5/17] Performing configure step for 'compiler-rt'
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/cc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for unwind.h
+-- Looking for unwind.h - found
+-- Looking for rpc/xdr.h
+-- Looking for rpc/xdr.h - not found
+-- Performing Test HAVE_FFI_CALL
+-- Performing Test HAVE_FFI_CALL - Success
+-- Found FFI: /usr/lib/x86_64-linux-gnu/libffi.so
+-- Performing Test Terminfo_LINKABLE
+-- Performing Test Terminfo_LINKABLE - Success
+-- Found Terminfo: /usr/lib/x86_64-linux-gnu/libtinfo.so
+-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11")
+-- Found LibXml2: /usr/lib/x86_64-linux-gnu/libxml2.so (found version "2.9.13")
+CMake Warning at cmake/Modules/CompilerRTUtils.cmake:326 (message):
+  LLVMTestingSupport not found in LLVM_AVAILABLE_LIBS
+Call Stack (most recent call first):
+  CMakeLists.txt:92 (load_llvm_config)
+
+
+-- LLVM_MAIN_SRC_DIR: "/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build/compiler-rt-prefix/src/compiler-rt/llvm"
+-- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter
+-- Performing Test CXX_SUPPORTS_UNWINDLIB_NONE_FLAG
+-- Performing Test CXX_SUPPORTS_UNWINDLIB_NONE_FLAG - Failed
+-- Looking for fopen in c
+-- Looking for fopen in c - found
+-- Looking for __gcc_personality_v0 in gcc_s
+-- Looking for __gcc_personality_v0 in gcc_s - found
+-- Performing Test C_SUPPORTS_NODEFAULTLIBS_FLAG
+-- Performing Test C_SUPPORTS_NODEFAULTLIBS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FFREESTANDING_FLAG
+-- Performing Test COMPILER_RT_HAS_FFREESTANDING_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_OMIT_FRAME_POINTER_FLAG
+-- Performing Test COMPILER_RT_HAS_OMIT_FRAME_POINTER_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_STD_C11_FLAG
+-- Performing Test COMPILER_RT_HAS_STD_C11_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FCF_PROTECTION_FLAG
+-- Performing Test COMPILER_RT_HAS_FCF_PROTECTION_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FPIC_FLAG
+-- Performing Test COMPILER_RT_HAS_FPIC_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FPIE_FLAG
+-- Performing Test COMPILER_RT_HAS_FPIE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_BUILTIN_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_BUILTIN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_EXCEPTIONS_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_EXCEPTIONS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FOMIT_FRAME_POINTER_FLAG
+-- Performing Test COMPILER_RT_HAS_FOMIT_FRAME_POINTER_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FUNWIND_TABLES_FLAG
+-- Performing Test COMPILER_RT_HAS_FUNWIND_TABLES_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_STACK_PROTECTOR_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_STACK_PROTECTOR_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_SANITIZE_SAFE_STACK_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_SANITIZE_SAFE_STACK_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_FVISIBILITY_HIDDEN_FLAG
+-- Performing Test COMPILER_RT_HAS_FVISIBILITY_HIDDEN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FRTTI_FLAG
+-- Performing Test COMPILER_RT_HAS_FRTTI_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_RTTI_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_RTTI_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_FUNCTION_SECTIONS_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_FUNCTION_SECTIONS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FTLS_MODEL_INITIAL_EXEC
+-- Performing Test COMPILER_RT_HAS_FTLS_MODEL_INITIAL_EXEC - Success
+-- Performing Test COMPILER_RT_HAS_FNO_LTO_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_LTO_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_GENERATE_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_GENERATE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_INSTR_GENERATE_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_INSTR_GENERATE_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_INSTR_USE_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_PROFILE_INSTR_USE_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_FNO_COVERAGE_MAPPING_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_COVERAGE_MAPPING_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_MCRC32_FLAG
+-- Performing Test COMPILER_RT_HAS_MCRC32_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_MSSE3_FLAG
+-- Performing Test COMPILER_RT_HAS_MSSE3_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_MSSE4_2_FLAG
+-- Performing Test COMPILER_RT_HAS_MSSE4_2_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_SYSROOT_FLAG
+-- Performing Test COMPILER_RT_HAS_SYSROOT_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_MCRC_FLAG
+-- Performing Test COMPILER_RT_HAS_MCRC_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_FNO_PARTIAL_INLINING_FLAG
+-- Performing Test COMPILER_RT_HAS_FNO_PARTIAL_INLINING_FLAG - Success
+-- Performing Test -ftrivial-auto-var-init=pattern
+-- Performing Test -ftrivial-auto-var-init=pattern - Failed
+-- Performing Test COMPILER_RT_HAS_FVISIBILITY_INLINES_HIDDEN_FLAG
+-- Performing Test COMPILER_RT_HAS_FVISIBILITY_INLINES_HIDDEN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_GR_FLAG
+-- Performing Test COMPILER_RT_HAS_GR_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_GS_FLAG
+-- Performing Test COMPILER_RT_HAS_GS_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_MT_FLAG
+-- Performing Test COMPILER_RT_HAS_MT_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_Oy_FLAG
+-- Performing Test COMPILER_RT_HAS_Oy_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_GLINE_TABLES_ONLY_FLAG
+-- Performing Test COMPILER_RT_HAS_GLINE_TABLES_ONLY_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_G_FLAG
+-- Performing Test COMPILER_RT_HAS_G_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_Zi_FLAG
+-- Performing Test COMPILER_RT_HAS_Zi_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WALL_FLAG
+-- Performing Test COMPILER_RT_HAS_WALL_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WERROR_FLAG
+-- Performing Test COMPILER_RT_HAS_WERROR_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WFRAME_LARGER_THAN_FLAG
+-- Performing Test COMPILER_RT_HAS_WFRAME_LARGER_THAN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WGLOBAL_CONSTRUCTORS_FLAG
+-- Performing Test COMPILER_RT_HAS_WGLOBAL_CONSTRUCTORS_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WC99_EXTENSIONS_FLAG
+-- Performing Test COMPILER_RT_HAS_WC99_EXTENSIONS_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WGNU_FLAG
+-- Performing Test COMPILER_RT_HAS_WGNU_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WNON_VIRTUAL_DTOR_FLAG
+-- Performing Test COMPILER_RT_HAS_WNON_VIRTUAL_DTOR_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WVARIADIC_MACROS_FLAG
+-- Performing Test COMPILER_RT_HAS_WVARIADIC_MACROS_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WUNUSED_PARAMETER_FLAG
+-- Performing Test COMPILER_RT_HAS_WUNUSED_PARAMETER_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WCOVERED_SWITCH_DEFAULT_FLAG
+-- Performing Test COMPILER_RT_HAS_WCOVERED_SWITCH_DEFAULT_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WSUGGEST_OVERRIDE_FLAG
+-- Performing Test COMPILER_RT_HAS_WSUGGEST_OVERRIDE_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_FLAG
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_REFERENCE_FLAG
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_REFERENCE_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_BETA_FLAG
+-- Performing Test COMPILER_RT_HAS_WTHREAD_SAFETY_BETA_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WNO_PEDANTIC
+-- Performing Test COMPILER_RT_HAS_WNO_PEDANTIC - Success
+-- Performing Test COMPILER_RT_HAS_WNO_FORMAT
+-- Performing Test COMPILER_RT_HAS_WNO_FORMAT - Success
+-- Performing Test COMPILER_RT_HAS_WNO_FORMAT_PEDANTIC
+-- Performing Test COMPILER_RT_HAS_WNO_FORMAT_PEDANTIC - Success
+-- Performing Test COMPILER_RT_HAS_EXTERNAL_FLAG
+-- Performing Test COMPILER_RT_HAS_EXTERNAL_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_W4_FLAG
+-- Performing Test COMPILER_RT_HAS_W4_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WX_FLAG
+-- Performing Test COMPILER_RT_HAS_WX_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4146_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4146_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4206_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4206_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4291_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4291_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4221_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4221_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4391_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4391_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4722_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4722_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_WD4800_FLAG
+-- Performing Test COMPILER_RT_HAS_WD4800_FLAG - Failed
+-- Performing Test -Warray-bounds
+-- Performing Test -Warray-bounds - Failed
+-- Performing Test -Wuninitialized
+-- Performing Test -Wuninitialized - Failed
+-- Performing Test -Wshadow
+-- Performing Test -Wshadow - Failed
+-- Performing Test -Wempty-body
+-- Performing Test -Wempty-body - Failed
+-- Performing Test -Wsizeof-pointer-memaccess
+-- Performing Test -Wsizeof-pointer-memaccess - Failed
+-- Performing Test -Wsizeof-array-argument
+-- Performing Test -Wsizeof-array-argument - Failed
+-- Performing Test -Wsuspicious-memaccess
+-- Performing Test -Wsuspicious-memaccess - Failed
+-- Performing Test -Wbuiltin-memcpy-chk-size
+-- Performing Test -Wbuiltin-memcpy-chk-size - Failed
+-- Performing Test -Warray-bounds-pointer-arithmetic
+-- Performing Test -Warray-bounds-pointer-arithmetic - Failed
+-- Performing Test -Wreturn-stack-address
+-- Performing Test -Wreturn-stack-address - Failed
+-- Performing Test -Wsizeof-array-decay
+-- Performing Test -Wsizeof-array-decay - Failed
+-- Performing Test -Wformat-insufficient-args
+-- Performing Test -Wformat-insufficient-args - Failed
+-- Performing Test -Wformat-security
+-- Performing Test -Wformat-security - Failed
+-- Performing Test -Wsizeof-array-div
+-- Performing Test -Wsizeof-array-div - Failed
+-- Performing Test -Wsizeof-pointer-div
+-- Performing Test -Wsizeof-pointer-div - Failed
+-- Looking for __func__
+-- Looking for __func__ - found
+-- Performing Test COMPILER_RT_HAS_NOSTDINCXX_FLAG
+-- Performing Test COMPILER_RT_HAS_NOSTDINCXX_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_NOSTDLIBXX_FLAG
+-- Performing Test COMPILER_RT_HAS_NOSTDLIBXX_FLAG - Failed
+-- Looking for include file sys/auxv.h
+-- Looking for include file sys/auxv.h - found
+-- Looking for dlopen in dl
+-- Looking for dlopen in dl - found
+-- Looking for shm_open in rt
+-- Looking for shm_open in rt - found
+-- Looking for pow in m
+-- Looking for pow in m - found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Looking for backtrace in execinfo
+-- Looking for backtrace in execinfo - not found
+-- Looking for __cxa_throw in c++
+-- Looking for __cxa_throw in c++ - found
+-- Looking for __cxa_throw in stdc++
+-- Looking for __cxa_throw in stdc++ - found
+-- Performing Test COMPILER_RT_HAS_Z_TEXT
+-- Performing Test COMPILER_RT_HAS_Z_TEXT - Success
+-- Performing Test COMPILER_RT_HAS_FUSE_LD_LLD_FLAG
+-- Performing Test COMPILER_RT_HAS_FUSE_LD_LLD_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_VERSION_SCRIPT
+-- Performing Test COMPILER_RT_HAS_VERSION_SCRIPT - Success
+-- Looking for __i386__
+-- Looking for __i386__ - not found
+-- Compiler-RT supported architectures: x86_64
+-- Performing Test COMPILER_RT_HAS_VISIBILITY_HIDDEN_FLAG
+-- Performing Test COMPILER_RT_HAS_VISIBILITY_HIDDEN_FLAG - Success
+-- Performing Test COMPILER_RT_HAS_XRAY_COMPILER_FLAG
+-- Performing Test COMPILER_RT_HAS_XRAY_COMPILER_FLAG - Failed
+-- Performing Test COMPILER_RT_HAS_ATOMIC_KEYWORD
+-- Performing Test COMPILER_RT_HAS_ATOMIC_KEYWORD - Success
+-- Performing Test COMPILER_RT_HAS_ASM_LSE
+-- Performing Test COMPILER_RT_HAS_ASM_LSE - Failed
+-- Builtin supported architectures: x86_64
+-- Performing additional configure checks with target flags: -m64
+-- Performing Test COMPILER_RT_HAS_x86_64_FLOAT16
+-- Performing Test COMPILER_RT_HAS_x86_64_FLOAT16 - Failed
+-- Performing Test COMPILER_RT_HAS_x86_64_BFLOAT16
+-- Performing Test COMPILER_RT_HAS_x86_64_BFLOAT16 - Failed
+-- For x86_64 builtins preferring i386/fp_mode.c to fp_mode.c
+-- For x86_64 builtins preferring x86_64/floatdidf.c to floatdidf.c
+-- For x86_64 builtins preferring x86_64/floatdisf.c to floatdisf.c
+-- For x86_64 builtins preferring x86_64/floatundidf.S to floatundidf.c
+-- For x86_64 builtins preferring x86_64/floatundisf.S to floatundisf.c
+-- For x86_64 builtins preferring x86_64/floatdixf.c to floatdixf.c
+-- For x86_64 builtins preferring x86_64/floatundixf.S to floatundixf.c
+-- Supported architectures for crt: x86_64
+-- Performing Test COMPILER_RT_TARGET_HAS_ATOMICS
+-- Performing Test COMPILER_RT_TARGET_HAS_ATOMICS - Success
+-- Performing Test COMPILER_RT_TARGET_HAS_FCNTL_LCK
+-- Performing Test COMPILER_RT_TARGET_HAS_FCNTL_LCK - Success
+-- Performing Test COMPILER_RT_TARGET_HAS_UNAME
+-- Performing Test COMPILER_RT_TARGET_HAS_UNAME - Success
+-- Performing Test HAS_THREAD_LOCAL
+-- Performing Test HAS_THREAD_LOCAL - Success
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build/compiler-rt-prefix/src/compiler-rt-build
+[6/17] Performing build step for 'compiler-rt'
+[1/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerExtFunctionsWindows.cpp.o
+[2/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerExtFunctionsDlsym.cpp.o
+[3/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerIOWindows.cpp.o
+[4/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerUtilDarwin.cpp.o
+[5/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerExtraCountersWindows.cpp.o
+[6/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerUtilFuchsia.cpp.o
+[7/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerExtraCountersDarwin.cpp.o
+[8/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerUtilWindows.cpp.o
+[9/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerExtraCounters.cpp.o
+[10/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerExtFunctionsWeak.cpp.o
+[11/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerIOPosix.cpp.o
+/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build/compiler-rt-prefix/src/compiler-rt/compiler-rt/lib/fuzzer/FuzzerIOPosix.cpp: In function ‘void fuzzer::RawPrint(const char*)’:
+/home/heewon/dgf/node_modules/@jazzer.js/fuzzer/build/compiler-rt-prefix/src/compiler-rt/compiler-rt/lib/fuzzer/FuzzerIOPosix.cpp:161:14: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+  161 |   (void)write(2, Str, strlen(Str));
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~
+[12/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerCrossOver.cpp.o
+[13/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerSHA1.cpp.o
+[14/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerUtilLinux.cpp.o
+[15/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerUtil.cpp.o
+[16/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerIO.cpp.o
+[17/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerUtilPosix.cpp.o
+[18/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerMutate.cpp.o
+[19/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerTracePC.cpp.o
+[20/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerDataFlowTrace.cpp.o
+[21/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerLoop.cpp.o
+[22/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerFork.cpp.o
+[23/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerMerge.cpp.o
+[24/25] Building CXX object lib/fuzzer/CMakeFiles/RTfuzzer.x86_64.dir/FuzzerDriver.cpp.o
+[25/25] Linking CXX static library lib/linux/libclang_rt.fuzzer_no_main-x86_64.a
+[7/17] No install step for 'compiler-rt'
+[8/17] Completed 'compiler-rt'
+[9/17] Building CXX object CMakeFiles/jazzerjs.dir/shared/sanitizer_symbols.cpp.o
+[10/17] Building CXX object CMakeFiles/jazzerjs.dir/shared/tracing.cpp.o
+[11/17] Building CXX object CMakeFiles/jazzerjs.dir/shared/callbacks.cpp.o
+[12/17] Building CXX object CMakeFiles/jazzerjs.dir/shared/coverage.cpp.o
+[13/17] Building CXX object CMakeFiles/jazzerjs.dir/addon.cpp.o
+[14/17] Building CXX object CMakeFiles/jazzerjs.dir/utils.cpp.o
+[15/17] Building CXX object CMakeFiles/jazzerjs.dir/fuzzing_sync.cpp.o
+[16/17] Building CXX object CMakeFiles/jazzerjs.dir/fuzzing_async.cpp.o
+[17/17] Linking CXX shared library Release/jazzerjs.node
+prebuild verb completed building cmake-js
+prebuild info build Stripping debug information from build/Release/jazzerjs.node
+prebuild info build Packing build/Release/jazzerjs.node into prebuilds/@jazzer.js/fuzzer-v2.1.0-napi-v4-linux-x64.tar.gz
+prebuild info build Prebuild written to prebuilds/@jazzer.js/fuzzer-v2.1.0-napi-v4-linux-x64.tar.gz
